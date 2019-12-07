@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="settings_order_by_labels">
+        <item>@string/settings_order_by_article_label</item>
+        <item>@string/settings_order_by_most_recent_label</item>
+    </string-array>
+
+    <string-array name="settings_order_by_values">
+        <item>@string/settings_order_by_article_value</item>
+        <item>@string/settings_order_by_most_recent_value</item>
+    </string-array>
+
+    <string-array name="settings_pagenum_labels">
+        <item>@string/settings_pagenum1_lbl</item>
+        <item>@string/settings_pagenum2_lbl</item>
+        <item>@string/settings_pagenum3_lbl</item>
+        <item>@string/settings_pagenum4_lbl</item>
+        <item>@string/settings_pagenum5_lbl</item>
+        <item>@string/settings_pagenum6_lbl</item>
+        <item>@string/settings_pagenum7_lbl</item>
+        <item>@string/settings_pagenum8_lbl</item>
+        <item>@string/settings_pagenum9_lbl</item>
+        <item>@string/settings_pagenum10_lbl</item>
+    </string-array>
+    <string-array name="settings_pagenum_values">
+        <item>@string/settings_pagenum1_value</item>
+        <item>@string/settings_pagenum2_value</item>
+        <item>@string/settings_pagenum3_value</item>
+        <item>@string/settings_pagenum4_value</item>
+        <item>@string/settings_pagenum5_value</item>
+        <item>@string/settings_pagenum6_value</item>
+        <item>@string/settings_pagenum7_value</item>
+        <item>@string/settings_pagenum8_value</item>
+        <item>@string/settings_pagenum9_value</item>
+        <item>@string/settings_pagenum10_value</item>
+    </string-array>
+
+</resources>
