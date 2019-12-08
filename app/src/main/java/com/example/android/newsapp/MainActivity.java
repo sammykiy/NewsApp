@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
             // First, hide loading indicator so error message will be visible
             View loadingIndicator = findViewById(R.id.loading_indicator);
             loadingIndicator.setVisibility(View.GONE);
-
+            emptyTextView.setVisibility(View.VISIBLE);
             // Update empty state with no connection error message
             emptyTextView.setText(R.string.no_internet_connection);
         }

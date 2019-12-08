@@ -146,7 +146,7 @@ public final class QueryUtils {
                 for (int j = 0; j < tagsArray.length(); j++) {
                     JSONObject authorName = tagsArray.getJSONObject(j);
                     author = authorName.getString("webTitle");
-                    Log.v("Author", "show me THE author: " + author);
+                    Log.v("QueryUtils", "show me THE author: " + author);
 
                 }
 

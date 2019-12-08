@@ -18,7 +18,7 @@ import java.util.Locale;
 
 public class ArticleAdapter extends ArrayAdapter<ArticleArray> {
 
-    private static final String AUTHOR_SEPARATOR = " | ";
+    private static final String AUTHOR_SEPARATOR = "|";
 
     /**
      * Create a new {@link ArticleAdapter} object.
@@ -50,30 +50,51 @@ public class ArticleAdapter extends ArrayAdapter<ArticleArray> {
 
         // Get the original section string from the Article object,
         String originalTitle = currentArticle.getTitle();
+        // Get the author string from the Article object,
+        String articleAuthor = currentArticle.getAuthor();
 
-        Log.v("Title", "Title: " + originalTitle);
-        // If the original tile string contains a title and an author
+        Log.v("Adapter", "Title (origin): " + originalTitle);
+        Log.v("Adapter", "Author (origin): " + articleAuthor);
+
+        // If the articleAuthis is null and original tile string contains a title and an author
         // then store the title separately from the author offset in 2 Strings,
         // so they can be displayed in 2 TextViews.
         String newTitle;
         String titleAuthor;
-        if (originalTitle.contains(AUTHOR_SEPARATOR)) {
+        if (articleAuthor != null && !articleAuthor.isEmpty()) {
+
+            titleAuthor = articleAuthor;
+
             // Split the string into different parts (as an array of Strings)
             // based on the " | " text. We expect an array of 2 Strings, where
             // the first String will be "the title and the second String will be "the author".
+            if (originalTitle.contains(AUTHOR_SEPARATOR)) {
+
+                String[] parts = originalTitle.split(" \\| ");
+                newTitle = parts[0];
+
+            } else {
+                newTitle = originalTitle;
+            }
+            Log.v("Adapter", "Author (if): " + titleAuthor);
+            Log.v("Adapter", "Title (if): " + newTitle);
+
+        } else if ((articleAuthor.isEmpty()) && (originalTitle.contains(AUTHOR_SEPARATOR))) {
+
             String[] parts = originalTitle.split(" \\| ");
             // Location offset should be "Title " + "|" "Author"
             newTitle = parts[0];
             titleAuthor = parts[1];
-            Log.v("Seperator", "Seperator: " + AUTHOR_SEPARATOR);
-            Log.v("Title", "Title: " + newTitle);
-            Log.v("Author from Split", "Author: " + titleAuthor);
+            Log.v("Adapter", "Title (else if): " + newTitle);
+            Log.v("Adapter", "Author(else if): " + titleAuthor);
         } else {
-            // Otherwise, there is no " | " text in the originalLocation string.
-            // Hence, set the default location offset to say "NA".
+            // If there is no " | " text in the originalLocation string.
+            // set the titleAuthor to read "..."
             titleAuthor = getContext().getString(R.string.noAuthor);
-
             newTitle = originalTitle;
+
+            Log.v("Adapter", "Title (else): " + newTitle);
+            Log.v("Adapter", "Author(else): " + titleAuthor);
         }
         // Find the TextView with view ID location
         TextView articleTitleView = (TextView) listItemView.findViewById(R.id.article_title);
